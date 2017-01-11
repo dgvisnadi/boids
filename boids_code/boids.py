@@ -2,13 +2,24 @@ from matplotlib import pyplot as plt
 from matplotlib import animation
 import random
 
-# Deliberately terrible code for teaching purposes
+# Variables
+var_range = 50
 
-boids_x=[random.uniform(-450,50.0) for x in range(50)]
-boids_y=[random.uniform(300.0,600.0) for x in range(50)]
-boid_x_velocities=[random.uniform(0,10.0) for x in range(50)]
-boid_y_velocities=[random.uniform(-20.0,20.0) for x in range(50)]
-boids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
+var_x_min = -450
+var_x_max = 50
+var_y_min = 300
+var_y_max = 600
+
+var_velo_x_min = 0
+var_velo_x_max = 10
+var_velo_y_min = -20
+var_velo_y_max = 20
+
+boids_x = [random.uniform(var_x_min, var_x_max) for x in range(var_range)]
+boids_y = [random.uniform(var_y_min, var_y_max) for x in range(var_range)]
+boid_x_velocities = [random.uniform(var_velo_x_min, var_velo_x_max) for x in range(var_range)]
+boid_y_velocities = [random.uniform(var_velo_y_min, var_velo_y_max) for x in range(var_range)]
+boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 def update_boids(boids):
 	xs,ys,xvs,yvs=boids
