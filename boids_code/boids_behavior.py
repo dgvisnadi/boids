@@ -24,15 +24,16 @@ def boids_fly_middle(coordinates, velocity):
     return velocity
 
 
-def boids_fly_away(xs,ys,velocity):
+def boids_fly_away(xs,ys,velocity_x,velocity_y):
     var_multiplier = 2
     var_boundary = 100
     boids_number = 50
-    for boid_i in range(boids_number):
-        for boid_j in range(boids_number):
-            if (xs[boid_j]-xs[boid_i])**var_multiplier + (ys[boid_j]-ys[boid_i])**var_multiplier < var_boundary:
-                velocity[boid_i]=velocity[boid_i]+(xs[boid_i]-xs[boid_j])
-    return velocity
+    for i in range(50):
+        for j in range(50):
+            if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < 100:
+                velocity_x[i]=velocity_x[i]+(xs[i]-xs[j])
+                velocity_y[i]=velocity_y[i]+(ys[i]-ys[j])
+    return velocity_x, velocity_y
 
 def match_speed(xs,ys,velocity):
     boids_number = 50

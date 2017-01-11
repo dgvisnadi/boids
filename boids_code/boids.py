@@ -26,8 +26,8 @@ def update_boids(boids):
 	boids_x, boids_y, boid_x_velocities, boid_y_velocities = boids
 	xvs = boids_fly_middle(boids_x, boid_x_velocities) # Fly towards the middle
 	yvs = boids_fly_middle(boids_y, boid_y_velocities)
-	xvs = boids_fly_away(boids_x, boids_y,xvs)
-	yvs = boids_fly_away(boids_x,boids_y,yvs)
+	xvs, yvs = boids_fly_away(boids_x, boids_y,xvs,yvs)
+	# yvs = boids_fly_away(boids_x,boids_y,yvs)
 	xvs = match_speed(boids_x, boids_y,xvs)   # Fly away from nearby boids
 	yvs = match_speed(boids_x, boids_y,yvs) # Try to match speed with nearby boids
 	xs = velocity_move(boids_x, xvs) # Move according to velocities
