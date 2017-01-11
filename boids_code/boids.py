@@ -1,5 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib import animation
+from boids_behavior import Boids_fly
 import random
 
 # Variables
@@ -21,51 +22,13 @@ boid_x_velocities = [random.uniform(var_velo_x_min, var_velo_x_max) for x in ran
 boid_y_velocities = [random.uniform(var_velo_y_min, var_velo_y_max) for x in range(boids_number)]
 boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
-def boids_fly_middle(coordinates, velocity):
-    param = 0.01
-    for iter_i in range(len(coordinates)):
-        for iter_j in range(len(coordinates)):
-            velocity[iter_i] = velocity[iter_i] + (coordinates[iter_j] - coordinates[iter_j]) \
-                                * param / len(coordinates)
-
-def boids_fly_away(boids):
-    xs,ys,xvs,yvs=boids
-    var_multiplier = 2
-    var_boundary = 100
-    for boid_i in range(boids_number):
-        for boid_j in range(boids_number):
-            if (xs[boid_j]-xs[boid_i])**var_multiplier + (ys[boid_j]-ys[boid_i])**var_multiplier < var_boundary:
-                xvs[boid_i]=xvs[boid_i]+(xs[boid_i]-xs[boid_j])
-                yvs[boid_i]=yvs[boid_i]+(ys[boid_i]-ys[boid_j])
-
-def match_speed(boids):
-    xs,ys,xvs,yvs=boids
-    var_multiplier = 2
-    var_boundary = 10000
-    param = 0.125
-    for iter_i in range(boids_number):
-        for iter_j in range(boids_number):
-            if (xs[j]-xs[i])**var_multiplier + (ys[j]-ys[i])**var_multiplier < var_boundary:
-                xvs[i]=xvs[i]+(xvs[j]-xvs[i])*param/len(xs)
-                yvs[i]=yvs[i]+(yvs[j]-yvs[i])*param/len(xs)
-
-def velocity_move(boids):
-    xs,ys,xvs,yvs=boids
-    for i in range(boids_number):
-        xs[i]=xs[i]+xvs[i]
-        ys[i]=ys[i]+yvs[i]
-
 def update_boids(boids):
-    xs,ys,xvs,yvs=boids	
-    # Fly towards the middle
-    boids_fly_middle(xs, xvs)
-    boids_fly_middle(ys, yvs)
-    # Fly away from nearby boids
-    boids_fly_away(boids)
-    # Try to match speed with nearby boids
-    match_speed(boids)
-    # Move according to velocities
-    velocity_move(boids)
+    boids_x, boids_y, boid_x_velocities, boid_y_velocities = boids
+    boids_fly_middle(boids_x, boid_x_velocities) # Fly towards the middle
+    boids_fly_middle(boids_y, boid_y_velocities)
+    boids_fly_away(boids)     # Fly away from nearby boids
+    match_speed(boids) # Try to match speed with nearby boids
+    velocity_move(boids) # Move according to velocities
 
 
 figure=plt.figure()
