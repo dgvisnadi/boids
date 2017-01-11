@@ -1,5 +1,6 @@
 import numpy as np
 
+boids_number = 50
 # class Boids_fly(object):
     # def __init__(self, start, end):
     #     self.start=start
@@ -16,38 +17,38 @@ import numpy as np
     #     return np.vstack([lats, longs]).transpose()
 
 
-def boids_fly_middle(coordinates, velocity):
+def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y):
     param = 0.01
-    for i in range(50):
-        for j in range(50):
-            velocity[i]=velocity[i]+(coordinates[j]-coordinates[i])*0.01/len(coordinates)
-    return velocity
-
-
-def boids_fly_away(xs,ys,velocity_x,velocity_y):
-    var_multiplier = 2
-    var_boundary = 100
-    boids_number = 50
-    for i in range(50):
-        for j in range(50):
-            if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < 100:
-                velocity_x[i]=velocity_x[i]+(xs[i]-xs[j])
-                velocity_y[i]=velocity_y[i]+(ys[i]-ys[j])
+    for i in range(boids_number):
+        for j in range(boids_number):
+            velocity_x[i] = velocity_x[i] + (x_coordinate[j] - x_coordinate[i]) * param / len(x_coordinate)
+            velocity_y[i] = velocity_y[i] + (y_coordinate[j] - y_coordinate[i]) * param / len(y_coordinate)
     return velocity_x, velocity_y
 
-def match_speed(xs,ys,velocity):
-    boids_number = 50
+
+def boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y):
+    var_multiplier = 2
+    var_boundary = 100
+    for i in range(boids_number):
+        for j in range(boids_number):
+            if (x_coordinate[j] - x_coordinate[i])**var_multiplier + (y_coordinate[j] - y_coordinate[i])**var_multiplier < var_boundary:
+                velocity_x[i] = velocity_x[i] + (x_coordinate[i] - x_coordinate[j])
+                velocity_y[i] = velocity_y[i] + (y_coordinate[i] - y_coordinate[j])
+    return velocity_x, velocity_y
+
+def match_speed(x_coordinate, y_coordinate, velocity_x, velocity_y):
     var_multiplier = 2
     var_boundary = 10000
     param = 0.125
     for i in range(boids_number):
         for j in range(boids_number):
-            if (xs[j]-xs[i])**var_multiplier + (ys[j]-ys[i])**var_multiplier < var_boundary:
-                velocity[i]=velocity[i]+(velocity[j]-velocity[i])*param/len(xs)
-    return velocity
+            if (x_coordinate[j] - x_coordinate[i])**var_multiplier + (y_coordinate[j] - y_coordinate[i])**var_multiplier < var_boundary:
+                velocity_x[i] = velocity_x[i] + (velocity_x[j] - velocity_x[i]) * param / len(x_coordinate)
+                velocity_y[i] = velocity_y[i] + (velocity_y[j] - velocity_y[i]) * param / len(x_coordinate)
+    return velocity_x, velocity_y
 
-def velocity_move(coordinates,velocity):
-    boids_number = 50
+def velocity_move(x_coordinate, y_coordinate, velocity_x, velocity_y):
     for i in range(boids_number):
-        coordinates[i]=coordinates[i]+velocity[i]
-    return coordinates
+        x_coordinate[i] = x_coordinate[i] + velocity_x[i]
+        y_coordinate[i] = y_coordinate[i] + velocity_y[i]
+    return x_coordinate, y_coordinate

@@ -2,6 +2,7 @@ from matplotlib import pyplot as plt
 from matplotlib import animation
 from boids_behavior import *
 import random
+import seaborn
 
 # Variables
 boids_number = 50
@@ -24,27 +25,31 @@ boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 def update_boids(boids):
 	boids_x, boids_y, boid_x_velocities, boid_y_velocities = boids
-	xvs = boids_fly_middle(boids_x, boid_x_velocities) # Fly towards the middle
-	yvs = boids_fly_middle(boids_y, boid_y_velocities)
-	xvs, yvs = boids_fly_away(boids_x, boids_y,xvs,yvs)
-	# yvs = boids_fly_away(boids_x,boids_y,yvs)
-	xvs = match_speed(boids_x, boids_y,xvs)   # Fly away from nearby boids
-	yvs = match_speed(boids_x, boids_y,yvs) # Try to match speed with nearby boids
-	xs = velocity_move(boids_x, xvs) # Move according to velocities
-	ys = velocity_move(boids_y, yvs)
+	# Fly towards the middle
+	boid_x_velocities, boid_y_velocities = boids_fly_middle(boids_x, boids_y, boid_x_velocities, boid_y_velocities)
+	# Fly away from nearby boids
+	boid_x_velocities, boid_y_velocities = boids_fly_away(boids_x, boids_y, boid_x_velocities, boid_y_velocities)
+	# Try to match speed with nearby boids
+	boid_x_velocities, boid_y_velocities = match_speed(boids_x, boids_y, boid_x_velocities, boid_y_velocities)
+	# Move according to velocities
+	boids_x, boids_y = velocity_move(boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 
-figure=plt.figure()
-axes=plt.axes(xlim=(-500,1500), ylim=(-500,1500))
-scatter=axes.scatter(boids[0],boids[1])
+# Prepare Graphic
+figure = plt.figure()
+figure.suptitle('Boids simulation')
 
+axes = plt.axes(xlim=(-500,1500), ylim=(-500,1500))
+scatter = axes.scatter(boids[0], boids[1])
+
+# Animate and fill graphic
 def animate(frame):
    update_boids(boids)
    scatter.set_offsets(list(zip(boids[0],boids[1])))
 
-
-anim = animation.FuncAnimation(figure, animate,
-                               frames=50, interval=50)
+# Execute boids animation
+anim = animation.FuncAnimation(figure, animate,frames=50, interval=50)
+# anim.save('animation.gif', writer='imagemagick')
 
 if __name__ == "__main__":
 	plt.show()
