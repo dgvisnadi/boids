@@ -27,21 +27,21 @@ def update_boids(boids):
 	boids_x, boids_y = velocity_move(boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 
-# Prepare Graphic
-figure = plt.figure()
-figure.suptitle('Boids simulation')
-
-axes = plt.axes(xlim=(-500,1500), ylim=(-500,1500))
-scatter = axes.scatter(boids[0], boids[1])
-
-# Animate and fill graphic
-def animate(frame):
-   	update_boids(boids)
-   	scatter.set_offsets(list(zip(boids[0],boids[1])))
-
-# Execute boids animation
-anim = animation.FuncAnimation(figure, animate,frames=50, interval=50)
-# anim.save('animation.gif', writer='imagemagick')
-
-if __name__ == "__main__":
-	plt.show()
+# # Prepare Graphic
+# figure = plt.figure()
+# figure.suptitle('Boids simulation')
+#
+# axes = plt.axes(xlim=(-500,1500), ylim=(-500,1500))
+# scatter = axes.scatter(boids[0], boids[1])
+#
+# # Animate and fill graphic
+# def animate(frame):
+#    	update_boids(boids)
+#    	scatter.set_offsets(list(zip(boids[0],boids[1])))
+#
+# # Execute boids animation
+# anim = animation.FuncAnimation(figure, animate,frames=50, interval=50)
+# # anim.save('animation.gif', writer='imagemagick')
+#
+# if __name__ == "__main__":
+# 	plt.show()
