@@ -1,7 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from boids_behavior import *
-import random
 import seaborn
 import yaml
 

@@ -1,4 +1,6 @@
 import numpy as np
+import random
+
 
 boids_number = 50
 # class Boids_fly(object):
@@ -11,7 +13,7 @@ boids_number = 50
 def random_uniform(min_values, max_values, boids_number):
     vector = [random.uniform(min_values, max_values) for boid in range(boids_number)]
     return vector
-    
+
 def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y):
     param = 0.01
     for i in range(boids_number):
