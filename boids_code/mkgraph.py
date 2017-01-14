@@ -2,6 +2,7 @@ from matplotlib import pyplot as plt
 from boids_code.boids import *
 import seaborn
 import yaml
+import os
 
 def make_graph(number, out=False):
     '''
