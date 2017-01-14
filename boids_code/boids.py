@@ -7,7 +7,7 @@ import yaml
 # Variables
 config=yaml.load(open("config.yaml"))
 
-boids_number = config['number']
+boids_number = number
 x_min, x_max, y_min, y_max = config['position']
 velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
 
