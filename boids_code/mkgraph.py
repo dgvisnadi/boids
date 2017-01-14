@@ -30,11 +30,13 @@ def make_graph(number, out=False):
 
 
     # Variables
-    config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yml')))
+    # config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yml')))
 
     boids_number = number
-    x_min, x_max, y_min, y_max = config['position']
-    velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
+    # x_min, x_max, y_min, y_max = config['position']
+    # velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
+    x_min, x_max, y_min, y_max = [-450,50,300,600]
+    velo_x_min, velo_x_max, velo_y_min, velo_y_max = [0,10,-20,20] 
 
     boids_x = random_uniform(x_min, x_max, boids_number)
     boids_y = random_uniform(y_min, y_max, boids_number)
