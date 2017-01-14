@@ -12,10 +12,10 @@ boids_number = config['number']
 x_min, x_max, y_min, y_max = config['position']
 velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
 
-boids_x = random_uniform(var_x_min, var_x_max, boids_number)
-boids_y = random_uniform(var_y_min, var_y_max, boids_number)
-boid_x_velocities = random_uniform(var_velo_x_min, var_velo_x_max, boids_number)
-boid_y_velocities = random_uniform(var_velo_y_min, var_velo_y_max, boids_number)
+boids_x = random_uniform(x_min, x_max, boids_number)
+boids_y = random_uniform(y_min, y_max, boids_number)
+boid_x_velocities = random_uniform(velo_x_min, velo_x_max, boids_number)
+boid_y_velocities = random_uniform(velo_y_min, velo_y_max, boids_number)
 boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 
