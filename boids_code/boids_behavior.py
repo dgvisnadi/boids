@@ -2,21 +2,16 @@ import numpy as np
 
 boids_number = 50
 # class Boids_fly(object):
-    # def __init__(self, start, end):
-    #     self.start=start
-    #     self.end=end
-    #
-    #
-    # def geolocate(self, place):
-    #     return self.geocoder.geocode(place,
-    #             exactly_one=False)[0][1]
-    #
-    # def location_sequence(self, start,end,steps):
-    #     lats = np.linspace(start[0], end[0], steps)
-    #     longs = np.linspace(start[1],end[1], steps)
-    #     return np.vstack([lats, longs]).transpose()
+#     # def __init__(self, start, end):
+#     #     self.start=start
+#     #     self.end=end
+#     #
+#     x_coordinate, y_coordinate, velocity_x, velocity_y = object
 
-
+def random_uniform(min_values, max_values, boids_number):
+    vector = [random.uniform(min_values, max_values) for boid in range(boids_number)]
+    return vector
+    
 def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y):
     param = 0.01
     for i in range(boids_number):
@@ -25,7 +20,7 @@ def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y):
             velocity_y[i] = velocity_y[i] + (y_coordinate[j] - y_coordinate[i]) * param / len(y_coordinate)
     return velocity_x, velocity_y
 
-
+# Fly away from nearby boids
 def boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y):
     var_multiplier = 2
     var_boundary = 100
@@ -36,6 +31,7 @@ def boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y):
                 velocity_y[i] = velocity_y[i] + (y_coordinate[i] - y_coordinate[j])
     return velocity_x, velocity_y
 
+# Try to match speed with nearby boids
 def match_speed(x_coordinate, y_coordinate, velocity_x, velocity_y):
     var_multiplier = 2
     var_boundary = 10000
@@ -47,6 +43,7 @@ def match_speed(x_coordinate, y_coordinate, velocity_x, velocity_y):
                 velocity_y[i] = velocity_y[i] + (velocity_y[j] - velocity_y[i]) * param / len(x_coordinate)
     return velocity_x, velocity_y
 
+# Move according to velocities
 def velocity_move(x_coordinate, y_coordinate, velocity_x, velocity_y):
     for i in range(boids_number):
         x_coordinate[i] = x_coordinate[i] + velocity_x[i]
