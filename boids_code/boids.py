@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 from matplotlib import animation
-from boids_behavior import *
+from boids_code.boids_behavior import boids_behavior
+
 import seaborn
 import yaml
 
