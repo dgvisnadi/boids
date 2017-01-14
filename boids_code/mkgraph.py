@@ -29,7 +29,7 @@ def make_graph(number, out=False):
 
 
     # Variables
-    config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml'))
+    config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
     boids_number = number
     x_min, x_max, y_min, y_max = config['position']
