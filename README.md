@@ -29,7 +29,7 @@ optional arguments:
   --out OUT           If TRUE, .gif file of animation will be saved
 ```
 
-Example: ```greengraph --from London --to Paris --steps 10 --out London_Paris.png```
+Example: ```boids --number 50 --out gif```
 
 <img src="/img/boids.gif" width=80% height=80%/>
 
