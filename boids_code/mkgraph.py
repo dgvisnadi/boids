@@ -23,8 +23,6 @@ def make_graph(number, out=False):
     boids_number = number
     x_min, x_max, y_min, y_max = config['position']
     velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
-    # x_min, x_max, y_min, y_max = [-450,50,300,600]
-    # velo_x_min, velo_x_max, velo_y_min, velo_y_max = [0,10,-20,20]
 
     boids_x = random_uniform(x_min, x_max, boids_number)
     boids_y = random_uniform(y_min, y_max, boids_number)
@@ -34,7 +32,7 @@ def make_graph(number, out=False):
 
     # Prepare Graphic
     figure = plt.figure()
-    figure.subtitle('Flying simulation of boids')
+    figure.suptitle('Flying simulation of boids')
     axes = plt.axes(xlim=(-500,1500), ylim=(-500,1500))
     scatter = axes.scatter(boids[0], boids[1])
 
