@@ -13,7 +13,7 @@ def make_graph(number, out=False):
     number: str     - How many boids appear in the animation
     end: str        -
     steps: int      -
-    out: str        - Type 'mp4' or 'gif' to save the animation
+    out: str        - Type mp4 or gif to save the animation
     '''
 
 
