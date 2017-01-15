@@ -1,8 +1,7 @@
 #  :bird: Boids
 
-Boids is a package that lets you visualize the number of green pixels between two location.
-It uses Google API to retrieve the image and counts the green pixels.
-
+Boids is a package that lets you simulate the flying behavior these birds.
+Optionally, you can save the animation as a .mp4 or .gif file.
 
 ### Getting Started
 
@@ -24,11 +23,9 @@ usage: greengraph [-h] [--from START] [--to END] [--steps STEPS] [--out OUT]
 Visualize amount of green pixels between two locations
 
 optional arguments:
-  -h, --help     show this help message and exit
-  --from START   Start Location
-  --to END       End Location
-  --steps STEPS  Steps between the two locations
-  --out OUT      Save as: (i.e. image.png)
+  -h, --help          show this help message and exit
+  --number NUMBER     Number of boids
+  --out OUT           If TRUE, .gif file of animation will be saved
 ```
 
 Example: ```greengraph --from London --to Paris --steps 10 --out London_Paris.png```
