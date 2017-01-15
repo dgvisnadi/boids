@@ -7,6 +7,6 @@ setup(
     description= 'Flying boids simulation',
     packages = find_packages(exclude=['*tests']),
     scripts = ['scripts/boids'],
-    data_files=[('boids_code', ['config.yaml'])],
+    data_files=[('boids_code', ['boids_code/config.yaml'])],
     install_requires = ['argparse', 'matplotlib', 'numpy', 'pyyaml', 'seaborn']
 )
