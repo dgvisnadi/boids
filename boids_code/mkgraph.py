@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+from matplotlib import animation
 from boids_code.boids import *
 import seaborn
 import yaml
