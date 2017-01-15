@@ -1,6 +1,7 @@
 #  :bird: Boids
 
 Boids is a package that lets you simulate the flying behavior these birds.
+
 Optionally, you can save the animation as a .mp4 or .gif file.
 
 ### Getting Started
