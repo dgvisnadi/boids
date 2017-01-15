@@ -44,7 +44,7 @@ def make_graph(number, out=False):
        scatter.set_offsets(list(zip(boids[0],boids[1])))
 
     # Execute boids animation
-    anim = animation.FuncAnimation(figure, animate, frames=50, interval=50)
+    anim = animation.FuncAnimation(figure, animate, frames=200, interval=50)
 
     if out == 'mp4':
         anim.save('boids.mp4')
