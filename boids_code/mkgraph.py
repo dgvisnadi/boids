@@ -5,27 +5,14 @@ import yaml
 import os
 
 def make_graph(number, out=False):
-    '''
-    Generate a plot showing intensity of green pixels between two locations.
+    '''Generates an animated plot simulating boids flying.
 
     Parameters
     ---------
-    start: str
-        Start location name, such as London or Paris
-
-    end: str
-        End location name, such as Milan or Madrid
-
-    steps: int
-        Number of images between start location and end location
-
-    out: str
-        Save as, i.e Desktop/graph.png
-
-    Returns
-    ---------
-    image
-
+    number: str     - How many boids appear in the animation
+    end: str        -
+    steps: int      -
+    out: str        - If TRUE, .gif file of animation will be saved
     '''
 
 
