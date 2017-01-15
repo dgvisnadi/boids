@@ -34,7 +34,7 @@ def make_graph(number, out=False):
 
     # Prepare Graphic
     figure = plt.figure()
-    figure.title('Flying simulation of ' + number + 'boids')
+    figure.subtitle('Flying simulation of boids')
     axes = plt.axes(xlim=(-500,1500), ylim=(-500,1500))
     scatter = axes.scatter(boids[0], boids[1])
 
