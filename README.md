@@ -19,9 +19,9 @@ pip install git+https://github.com/dgvisnadi/boids.git
 The command ```greengraph --help``` will show you how to use the function:
 
 ```
-usage: greengraph [-h] [--from START] [--to END] [--steps STEPS] [--out OUT]
+usage: boids [-h] [--number BOIDS] [--out TYPE]
 
-Visualize amount of green pixels between two locations
+Simulate boids flying behavior
 
 optional arguments:
   -h, --help          show this help message and exit
