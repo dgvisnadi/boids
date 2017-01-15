@@ -46,9 +46,9 @@ def make_graph(number, out=False):
     # Execute boids animation
     anim = animation.FuncAnimation(figure, animate, frames=50, interval=50)
 
-    if out = 'mp4':
+    if out == 'mp4':
         anim.save('boids.mp4')
-    if out = 'gif':
+    if out == 'gif':
         anim.save('boids.gif', writer='imagemagick')
     else:
         plt.show()
