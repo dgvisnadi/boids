@@ -1,5 +1,7 @@
 import numpy as np
 import random
+import yaml
+config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
 
 # boids_number = 50
@@ -17,7 +19,7 @@ def random_uniform(min_values, max_values, boids_number):
 
 def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number):
     """Boids fly towards the middle."""
-    param = 0.01
+    param = config['boids_fly_middle'] ['param']
     for i in range(boids_number):
         for j in range(boids_number):
             velocity_x[i] = velocity_x[i] + (x_coordinate[j] - x_coordinate[i]) * param / len(x_coordinate)
@@ -27,8 +29,8 @@ def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_n
 
 def boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number):
     """Fly away from nearby boids."""
-    var_multiplier = 2
-    var_boundary = 100
+    var_multiplier = config['boids_fly_away']['var_multiplier']
+    var_boundary = config['boids_fly_away']['var_boundary']
     for i in range(boids_number):
         for j in range(boids_number):
             if (x_coordinate[j] - x_coordinate[i])**var_multiplier + (y_coordinate[j] - y_coordinate[i])**var_multiplier < var_boundary:
@@ -39,9 +41,9 @@ def boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_num
 
 def match_speed(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number):
     """Try to match speed with nearby boids"""
-    var_multiplier = 2
-    var_boundary = 10000
-    param = 0.125
+    var_multiplier = config['match_speed']['var_multiplier']
+    var_boundary = config['match_speed']['var_boundary']
+    param = config['match_speed']['param']
     for i in range(boids_number):
         for j in range(boids_number):
             if (x_coordinate[j] - x_coordinate[i])**var_multiplier + (y_coordinate[j] - y_coordinate[i])**var_multiplier < var_boundary:
