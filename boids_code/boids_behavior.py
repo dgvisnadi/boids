@@ -16,8 +16,7 @@ config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
 def random_uniform(min_values, max_values, boids_number):
     """Creating vector of random values"""
-    vector = [random.uniform(min_values, max_values) for boid in range(boids_number)]
-    return vector
+    return [random.uniform(min_values, max_values) for boid in range(boids_number)]
 
 def boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number):
     """Boids fly towards the middle."""
