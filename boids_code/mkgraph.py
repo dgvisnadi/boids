@@ -19,7 +19,11 @@ def make_graph(number, speed, out=False):
     # Variables
     config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
-    speed = config['velocity'][str(speed)]
+    if speed == 'slow':
+        speed = config['velocity']['slow']
+    elif speed == 'fast':
+        speed = config['velocity']['fast']
+
     boids_number = number
     x_min, x_max, y_min, y_max = config['position']
     velo_x_min, velo_x_max, velo_y_min, velo_y_max = speed
