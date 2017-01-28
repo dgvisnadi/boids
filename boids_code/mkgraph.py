@@ -11,7 +11,7 @@ def make_graph(number, speed, out=False):
     Parameters
     ---------
     number: str     - How many boids appear in the animation
-    speed: str      - slow or fast
+    speed: int      - 0 = slow or 1 = fast
     out: str        - Type mp4 or gif to save the animation
     '''
 
@@ -19,9 +19,9 @@ def make_graph(number, speed, out=False):
     # Variables
     config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
-    if speed == 'slow':
+    if speed = 0:
         speed = config['velocity']['slow']
-    elif speed == 'fast':
+    elif speed = 1:
         speed = config['velocity']['fast']
 
     boids_number = number
