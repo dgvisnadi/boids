@@ -19,9 +19,9 @@ def make_graph(number, speed, out=False):
     # Variables
     config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
-    if speed = 0:
+    if speed == 0:
         speed = config['velocity']['slow']
-    elif speed = 1:
+    elif speed == 1:
         speed = config['velocity']['fast']
 
     boids_number = number
