@@ -11,7 +11,7 @@ def make_graph(number, speed='slow', out=False):
     Parameters
     ---------
     number: str     - How many boids appear in the animation
-    speed: int      - 0 = slow or 1 = fast
+    speed: str      - slow or fast
     out: str        - Type mp4 or gif to save the animation
     '''
 
