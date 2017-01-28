@@ -3,8 +3,10 @@ import random
 import yaml
 import os
 
+# Call parameters from yaml file
 config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
+# Formulas to calculate flying behavior
 def random_uniform(min_values, max_values, boids_number):
     """Creating vector of random values"""
     return [random.uniform(min_values, max_values) for boid in range(boids_number)]

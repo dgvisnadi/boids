@@ -5,8 +5,9 @@ from random import randint
 import yaml
 import os
 
+# Load parameters for testing
 position = config['position']
-velocity = config['velocity']
+velocity = config['velocity']['slow']
 boids_number = randint(1,100)
 
 x_min, x_max, y_min, y_max = position
@@ -18,6 +19,7 @@ y_coordinate = random_uniform(y_min, y_max, boids_number)
 velocity_x = random_uniform(velo_x_min, velo_x_max, boids_number)
 velocity_y = random_uniform(velo_y_min, velo_y_max, boids_number)
 
+# Testing functions that compare parameters and outcome in functions
 def test_yaml_parameter():
     assert(position[0] < position[1] and position[2] < position[3])
     assert(velocity[0] < velocity[1] and velocity[2] < velocity[3])

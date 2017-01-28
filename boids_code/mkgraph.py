@@ -48,12 +48,10 @@ def make_graph(number, speed='slow', out=False):
     # Execute boids animation
     anim = animation.FuncAnimation(figure, animate, frames=200, interval=50)
 
+    # Format of animation when saved; mp4 or gif otherwise just display animation
     if out == 'mp4':
         anim.save('boids.mp4')
     if out == 'gif':
         anim.save('boids.gif', writer='imagemagick')
     else:
         plt.show()
-
-    # if __name__ == "__main__":
-    #     plt.show()
