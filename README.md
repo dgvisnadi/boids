@@ -32,6 +32,6 @@ optional arguments:
 
 Example: ```boids --number 50 --speed slow --out gif```
 
-<img src="/img/boids_slow.gif" width=40%/> <img src="/img/boids_fast.gif" width=40%/>
+<img src="/img/boids_slow.gif" width=48%/> <img src="/img/boids_fast.gif" width=48%/>
 
 For any distribution, please have a look at [CITATION.md](/CITATION.md) and [LICENSE](/LICENSE)
