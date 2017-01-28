@@ -1,16 +1,19 @@
 # Variables for mkgraph.py
-position: [-450,50,300,600]     
-velocity: [0,10,-20,20]
+position: [-450,50,300,600]
+velocity:
+  slow: [0,10,-20,20]
+  fast: [20,30,0,-10]
 
-# Variables for boids_behavior.py 
+
+# Variables for boids_behavior.py
 boids_fly_middle:
     param: 0.01
-    
+
 boids_fly_away:
     var_multiplier: 2
-    var_boundary: 100  
-        
+    var_boundary: 100
+
 match_speed:
     var_multiplier: 2
     var_boundary: 10000
-    param: 0.125     
+    param: 0.125

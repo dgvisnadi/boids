@@ -5,14 +5,13 @@ import seaborn
 import yaml
 import os
 
-def make_graph(number, out=False):
+def make_graph(number, speed, out=False):
     '''Generates an animated plot simulating boids flying.
 
     Parameters
     ---------
     number: str     - How many boids appear in the animation
-    end: str        -
-    steps: int      -
+    speed: str      - slow or fast
     out: str        - Type mp4 or gif to save the animation
     '''
 
@@ -20,9 +19,10 @@ def make_graph(number, out=False):
     # Variables
     config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
+    speed = config['velocity'][str(speed)]
     boids_number = number
     x_min, x_max, y_min, y_max = config['position']
-    velo_x_min, velo_x_max, velo_y_min, velo_y_max = config['velocity']
+    velo_x_min, velo_x_max, velo_y_min, velo_y_max = speed
 
     boids_x = random_uniform(x_min, x_max, boids_number)
     boids_y = random_uniform(y_min, y_max, boids_number)

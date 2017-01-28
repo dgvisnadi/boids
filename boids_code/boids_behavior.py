@@ -5,15 +5,6 @@ import os
 
 config=yaml.load(open(os.path.join(os.path.dirname(__file__),'config.yaml')))
 
-
-# boids_number = 50
-# class Boids_fly(object):
-#     # def __init__(self, start, end):
-#     #     self.start=start
-#     #     self.end=end
-#     #
-#     x_coordinate, y_coordinate, velocity_x, velocity_y = object
-
 def random_uniform(min_values, max_values, boids_number):
     """Creating vector of random values"""
     return [random.uniform(min_values, max_values) for boid in range(boids_number)]
