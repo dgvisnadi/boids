@@ -5,7 +5,7 @@ import seaborn
 import yaml
 import os
 
-def make_graph(number, speed, out=False):
+def make_graph(number, speed=0, out=False):
     '''Generates an animated plot simulating boids flying.
 
     Parameters
