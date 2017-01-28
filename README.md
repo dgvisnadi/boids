@@ -19,18 +19,19 @@ pip install git+https://github.com/dgvisnadi/boids.git
 The command ```greengraph --help``` will show you how to use the function:
 
 ```
-usage: boids [-h] [--number BOIDS] [--out TYPE]
+usage: boids [-h] [--number BOIDS] [--speed SPEED] [--out TYPE]
 
 Simulate boids flying behavior
 
 optional arguments:
   -h, --help          show this help message and exit
   --number NUMBER     Number of boids
+  --speed SPEED       slow or fast
   --out OUT           If TRUE, .gif file of animation will be saved
 ```
 
 Example: ```boids --number 50 --out gif```
 
-<img src="/img/boids.gif" width=80% height=80%/>
+<img src="/img/boids_slow.gif" width=50%/> <img src="/img/boids_fast.gif" width=50%/> 
 
 For any distribution, please have a look at [CITATION.md](/CITATION.md) and [LICENSE](/LICENSE)
