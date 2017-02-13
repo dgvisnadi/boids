@@ -28,7 +28,7 @@ def test_yaml_parameter():
 def test_random_uniform():
     for value in range(len(min_values)):
         test_vector = random_uniform(min_values[value], max_values[value], boids_number)
-        assert(min_values <= min(test_vector) and max(test_vector) <= max_values)
+        assert(min_values[value] < max_values[value])
         assert_equal(len(test_vector), boids_number)
 
 def test_boids_fly_middle():
