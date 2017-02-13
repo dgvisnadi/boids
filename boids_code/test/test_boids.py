@@ -28,32 +28,32 @@ def test_yaml_parameter():
 def test_random_uniform():
     for value in range(len(min_values)):
         test_vector = random_uniform(min_values[value], max_values[value], boids_number)
-        assert(min_value <= min(test_vector) and max(test_vector) <= max_values)
+        assert(min_values <= min(test_vector) and max(test_vector) <= max_values)
         assert_equal(len(test_vector), boids_number)
 
 def test_boids_fly_middle():
-    v_x, v_y = boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y)
+    v_x, v_y = boids_fly_middle(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number)
     assert_equal(len(v_x), len(v_y))
     assert_equal(len(v_x), len(x_coordinate))
     assert_equal(len(v_x), len(y_coordinate))
     assert_equal(len(v_x), boids_number)
 
 def test_boids_fly_away():
-    v_x, v_y = boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y)
+    v_x, v_y = boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number)
     assert_equal(len(v_x), len(v_y))
     assert_equal(len(v_x), len(x_coordinate))
     assert_equal(len(v_x), len(y_coordinate))
     assert_equal(len(v_x), boids_number)
 
 def test_match_speed():
-    v_x, v_y = boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y)
+    v_x, v_y = boids_fly_away(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number)
     assert_equal(len(v_x), len(v_y))
     assert_equal(len(v_x), len(x_coordinate))
     assert_equal(len(v_x), len(y_coordinate))
     assert_equal(len(v_x), boids_number)
 
 def test_velocity_move():
-    v_x, v_y = velocity_move(x_coordinate, y_coordinate, velocity_x, velocity_y)
+    v_x, v_y = velocity_move(x_coordinate, y_coordinate, velocity_x, velocity_y, boids_number)
     assert_equal(len(v_x), len(v_y))
     assert_equal(len(v_x), len(x_coordinate))
     assert_equal(len(v_x), len(y_coordinate))
