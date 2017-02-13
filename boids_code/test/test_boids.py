@@ -1,5 +1,5 @@
 from boids_code.boids_behavior import *
-from boids_code.boid import *
+from boids_code.boids import *
 from nose.tools import assert_equal
 from random import randint
 import yaml
