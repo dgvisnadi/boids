@@ -9,5 +9,5 @@ setup(
     packages = find_packages(exclude=['*tests']),
     scripts = ['scripts/boids'],
     package_data = {"boids_code": ["config.yaml"]},
-    install_requires = ['argparse', 'matplotlib', 'numpy', 'pyyaml', 'seaborn']
+    install_requires = ['argparse', 'matplotlib', 'os','yaml', 'pyyaml','random', 'seaborn']
 )
